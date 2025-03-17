@@ -1,0 +1,13 @@
+{
+  "name": "@cost-tracker/cost-tracker",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "name": "cost-tracker"
+  },
+  "dependencies": {
+    "next": "~15.1.4",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  }
+}
