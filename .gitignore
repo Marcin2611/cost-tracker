@@ -48,3 +48,7 @@ out
 test-output
 
 .nx
+docker.env
+backend.env
+.env
+test.txt

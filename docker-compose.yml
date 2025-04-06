@@ -1,0 +1,41 @@
+version: '3.8'
+
+name: cost-tracker-app
+services:
+  db:
+    container_name: cost-tracker-postgres
+    image: postgres
+    restart: always
+    env_file:
+      - docker.env
+    ports:
+      - "5432:5432"
+    volumes:
+      - local_pgdata:/var/lib/postgresql/data
+    networks:
+      - postgres
+  pgadmin:
+    container_name: cost-tracker-pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    env_file:
+      - docker.env
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    networks:
+      - postgres
+    depends_on:
+      - db
+
+volumes:
+  local_pgdata:
+    name: 'cost-tracker-data'
+  pgadmin-data:
+    name: 'cost-tracker-pgadmin-data'
+
+networks:
+  postgres:
+    driver: bridge
+
