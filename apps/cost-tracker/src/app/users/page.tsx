@@ -8,23 +8,11 @@ const UsersPage = () => {
 
   return (
     <div>
-      {
-        users
-          .map(user =>
-            <div key={user.email}>
-              <h3>{user.name}</h3>
-              <div>
-                <ul>
-                  {
-                    user.costs.map(cost =>
-                      <li>{new Date(cost.date).toLocaleDateString()} {cost.amount}$ {cost.category.name}</li>
-                    )
-                  }
-                </ul>
-              </div>
-            </div>
-          )
-      }
+      {users.map((user) => (
+        <div key={user.email}>
+          <h3>{user.name}</h3>
+        </div>
+      ))}
     </div>
   );
 };
