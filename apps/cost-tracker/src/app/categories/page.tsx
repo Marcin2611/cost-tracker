@@ -18,13 +18,13 @@ const CategoriesPage = () => {
   }, []);
 
   return (
-    <div>
+    <ul>
       {categories.map((category) => (
-        <pre style={{ margin: '1rem auto', width: '400px' }} key={category.id}>
-          {JSON.stringify(category, null, 2)}
-        </pre>
+        <li style={{ margin: '1rem auto', width: '400px' }} key={category.id}>
+          {category.name}
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 
