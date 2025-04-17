@@ -5,9 +5,15 @@
   "nx": {
     "name": "cost-tracker"
   },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "dependencies": {
-    "next": "~15.1.4",
+    "next": "15.2.4",
     "react": "19.0.0",
     "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "tsx": "~4.19.3"
   }
 }
