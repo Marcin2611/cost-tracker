@@ -1,8 +1,19 @@
+import { CategoryWithId } from './categories';
 import { Category } from '@/models/categories';
 
 export type Cost = {
-  id?: number;
   amount: number;
   date: string;
-  category: Category
-}
+  category: Category;
+};
+
+export type CostWithId = {
+  id: number;
+} & Cost;
+
+export type CostWithIdAndCategoryId = {
+  amount: number;
+  id: number;
+  date: string;
+  category: CategoryWithId;
+};

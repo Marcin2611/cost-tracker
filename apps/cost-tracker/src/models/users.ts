@@ -1,4 +1,4 @@
-import { Cost } from '@/models/costs';
+import { Cost, CostWithId } from '@/models/costs';
 
 export type User = {
   id?: number;
@@ -6,4 +6,9 @@ export type User = {
   email: string;
   isActive: boolean;
   costs: Cost[];
+};
+
+export type UserCosts = {
+  name: string;
+  costs: CostWithId[];
 };

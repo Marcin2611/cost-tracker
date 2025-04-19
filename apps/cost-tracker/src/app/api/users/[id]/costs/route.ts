@@ -15,7 +15,9 @@ export const GET = async (
       name: true,
       costs: {
         select: {
+          id: true,
           amount: true,
+          date: true,
           description: true,
           category: {
             select: {

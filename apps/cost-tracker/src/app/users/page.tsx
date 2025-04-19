@@ -1,4 +1,5 @@
 'use client';
+import PageHeader from '@/components/PageHeader';
 import useUsers from '@/hooks/useUsers';
 import Link from 'next/link';
 
@@ -9,6 +10,7 @@ const UsersPage = () => {
 
   return (
     <div>
+      <PageHeader text="Users list" />
       <ul role="list" className="divide-y divide-gray-300">
         {users.map((user) => (
           <li
