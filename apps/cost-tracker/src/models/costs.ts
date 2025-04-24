@@ -5,6 +5,7 @@ export type Cost = {
   amount: number;
   date: string;
   category: Category;
+  user: { name: string };
 };
 
 export type CostWithId = {

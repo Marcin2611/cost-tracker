@@ -1,31 +1,25 @@
 'use client';
 
 import PageHeader from '@/components/PageHeader';
-import { UserCosts } from '@/models/users';
-import { notFound, useParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useParams } from 'next/navigation';
+import { useUserCosts } from '@/hooks/useCosts';
 
 const UserCostsPage = () => {
   const { id } = useParams();
-  const [costsData, setCostsData] = useState<UserCosts | null>(null);
+  const { userCosts } = useUserCosts(Number(id));
 
-  useEffect(() => {
-    const fetchUserCosts = async () => {
-      const response = await fetch(`/api/users/${id}/costs`);
-      const data: UserCosts = await response.json();
-
-      console.log(data);
-      setCostsData(data);
-    };
-
-    fetchUserCosts();
-  }, []);
-
-  if (!costsData) return <div>Cost not found</div>;
+  if (!userCosts) return <div>Cost not found</div>;
 
   return (
     <div>
-      <PageHeader text={`${costsData.name} costs`} />
+      <PageHeader text={`${userCosts.name} costs`} />
+      {userCosts.costs.map((cost) => (
+        <div className="grid grid-cols-3 space-y-3" key={cost.id}>
+          <span>{cost.amount}$</span>
+          <span>{new Date(cost.date).toLocaleString()}</span>
+          <span>{cost.category.name}</span>
+        </div>
+      ))}
     </div>
   );
 };

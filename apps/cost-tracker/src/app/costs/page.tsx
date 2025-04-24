@@ -1,11 +1,22 @@
+'use client';
+
+import { useCosts } from '@/hooks/useCosts';
+import PageHeader from '@/components/PageHeader';
+
 const CostsPage = () => {
+  const { costs } = useCosts();
+
   return (
     <div>
-      <h1 className="text-3xl font-bold font-stretch-expanded">Costs</h1>
-      <p className="text-sm/6 font-semibold text-gray-900">Costs page</p>
-      <div>
-        <p>Costs will be displayed here</p>
-      </div>
+      <PageHeader text="Costs" />
+      {costs.map((cost) => (
+        <div className="grid grid-cols-4 space-y-3" key={cost.id}>
+          <span>{new Date(cost.date).toLocaleString()}</span>
+          <span>{cost.user.name}</span>
+          <span>{cost.category.name}</span>
+          <span>{cost.amount}</span>
+        </div>
+      ))}
     </div>
   );
 };
