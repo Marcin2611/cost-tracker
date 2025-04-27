@@ -15,7 +15,9 @@ export default function RootLayout({
     <html lang="en" className="h-full bg-gray-100">
       <body className="h-full">
         <Titlebar />
-        <div className="container mx-auto mt-4">{children}</div>
+        <div className="container mx-auto my-4 h-[calc(100vh-132px)]">
+          {children}
+        </div>
       </body>
     </html>
   );
